@@ -13,7 +13,8 @@ nav {
     gap: 1rem;
     position: sticky;
     top: 0;
-    
+    background-color: #408fd5a9;
+      
 }
 nav a:hover{
     color: blue;
@@ -39,7 +40,7 @@ footer{
 }
 #projects{
     display:grid;
-    grid-template-columns:1fr 1fr  1fr;
+    grid-template-columns:1fr 1fr 1fr ;
     gap: 1rem;
 }
 @media(max-width:768px){
