@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio website of Liya Teklu">
     <title>Portfolio</title>
-    <link href="style.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>Liya Teklu</header>
-    <nav>       
+    <header> 
+        <h1>Liya Teklu</h1>
+        <p>Aspiring Software developer</p>
+    </header>
+
+    <nav> 
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        
     </nav>
-    <main></main>
-    <section class="about">
+    <main>
+    <section id="about">
         <h2>About Me</h2>
         <img src="me.jpg" alt="picture 2">
         <p>My name is Liya Teklu, I am a Computer Science major who is interested in learning how technology works and how software is built.
@@ -22,16 +29,22 @@
          Studying computer science allows me to develop logical thinking skills and gain practical knowledge that can be applied to real-world problems.</p>
     </section>
 
-    <section class="projects">
+    <section id="projects">
         <h2>Projects</h2>
-        <ol>
-        <li>Roomly</li>
+        <article>
+        <h3>Roomly</h3>
         <p> => A roommate matching platform.</p>
-        <a href=""></a>
-        </ol>
+        <a href="https://github.com/LiyaT16/Software-engineering-project-.git">View Project</a>
+       </article>
+
+       <article>
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio website using HTML and CSS</p>
+        <a href="https://github.com/LiyaT16/Software-engineering-project-.git">View Project</a>
+    </article>
     </section>
 
-    <section class="contact">
+    <section id="contact">
         <h2>Contact Me</h2>
     <form>
         <label>Name:</label><br>
@@ -43,10 +56,8 @@
         <button>Submit</button>
     </form>
     </section>
-    <article>
-        
-    </article>
-    <footer>&copy; 2026 <a href=""></a></footer>
     
+    <footer>&copy; 2026 <a href="https://github.com/LiyaT16"> Github link</a></footer>
+    </main>
 </body>
 </html>
