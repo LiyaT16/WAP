@@ -35,8 +35,17 @@ const studentsList = [
 ];
 const names = studentsList.map((student) => student.name);
 console.log("Names: ", names);
-const highPerform = (0, utils_1.filterArray)(studentsList, (student) => (0, studentUtils_1.calculateAverage)(student) >= 85);
-console.log("High performing students: ", highPerform);
+console.log("----------------------------------------");
+let total = 0;
+for (let i = 0; i < studentsList.length; i++) {
+    total += (0, studentUtils_1.calculateAverage)(studentsList[i]);
+}
+let classAvg = total / studentsList.length;
+console.log("Class Average: ", classAvg);
+console.log("----------------------------------------");
+const highStud = (0, utils_1.filterArray)(studentsList, student => (0, studentUtils_1.calculateAverage)(student) > 84);
+console.log("Higher performing", highStud);
+console.log("----------------------------------------");
 studentsList.forEach((studentsList) => {
     (0, studentUtils_1.printStudentInfo)(studentsList);
 });

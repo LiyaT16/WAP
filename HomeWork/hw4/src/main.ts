@@ -35,12 +35,19 @@ const studentsList: (Student | GraduateStudent)[] = [
 ];
 const names = studentsList.map((student) => student.name);
 console.log("Names: ", names);
+console.log("----------------------------------------");
 
+let total = studentsList.reduce((sum, student) => sum + calculateAverage(student), 0);
+let classAvg = total / studentsList.length;
+console.log("Class Average: ", classAvg);
+console.log("----------------------------------------");
+
+const highStud = filterArray(studentsList, student => calculateAverage(student) > 84);
+console.log("Higher performing", highStud);
+console.log("----------------------------------------");
 
 studentsList.forEach((studentsList) => {
     printStudentInfo(studentsList);
 });
-
-
 
 
