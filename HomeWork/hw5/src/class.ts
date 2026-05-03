@@ -1,4 +1,4 @@
-abstract class LibraryItem {
+export abstract class LibraryItem {
     isAvailable: boolean = true;
 
     constructor(public id: number, public title: string) { }
