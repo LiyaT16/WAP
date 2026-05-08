@@ -1,7 +1,9 @@
 import cors from 'cors';
 import express from "express";
-import { apiKeyMiddleware, errorHandler } from './middleware';
-import { Book } from './data';
+import { apiKeyMiddleware } from './middleware';
+import { books } from './data';
+import { Request, Response, NextFunction } from "express";
+
 
 const app = express();
 
@@ -9,10 +11,14 @@ app.use(cors());
 app.use(express.json());
 app.use("/books", apiKeyMiddleware);
 
-const books: Book[] = [];
 
 app.get("/books", (req, res) => {
-    res.status(200).json(books);
+    const q = req.query.q as string;
+    if (q) {
+        const filtered = books.filter(b => b.title.toLowerCase().includes(q.toLowerCase()) || b.author.toLowerCase().includes(q.toLowerCase()));
+        return res.json(filtered);
+    }
+    res.json(books);
 });
 
 app.get("/books/:id", (req, res) => {
@@ -67,6 +73,9 @@ app.delete("/books/:id", (req, res) => {
 
 });
 
+export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+    res.status(500).send({ message: err.message });
+};
 app.use(errorHandler);
 
 const port = 5005;

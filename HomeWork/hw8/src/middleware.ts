@@ -11,7 +11,5 @@ export const apiKeyMiddleware = (req: Request, res: Response, next: NextFunction
     next();
 };
 
-export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
-    res.status(500).send({ message: err.message });
-}
+
 
