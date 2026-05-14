@@ -36,10 +36,7 @@ const studentsList = [
 const names = studentsList.map((student) => student.name);
 console.log("Names: ", names);
 console.log("----------------------------------------");
-let total = 0;
-for (let i = 0; i < studentsList.length; i++) {
-    total += (0, studentUtils_1.calculateAverage)(studentsList[i]);
-}
+let total = studentsList.reduce((sum, student) => sum + (0, studentUtils_1.calculateAverage)(student), 0);
 let classAvg = total / studentsList.length;
 console.log("Class Average: ", classAvg);
 console.log("----------------------------------------");

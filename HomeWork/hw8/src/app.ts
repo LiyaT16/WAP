@@ -15,7 +15,8 @@ app.use("/books", apiKeyMiddleware);
 app.get("/books", (req, res) => {
     const q = req.query.q as string;
     if (q) {
-        const filtered = books.filter(b => b.title.toLowerCase().includes(q.toLowerCase()) || b.author.toLowerCase().includes(q.toLowerCase()));
+        const filtered = books.filter(b => b.title.toLowerCase().includes(q.toLowerCase()) ||
+            b.author.toLowerCase().includes(q.toLowerCase()));
         return res.json(filtered);
     }
     res.json(books);
@@ -63,6 +64,27 @@ app.patch("/books/:id", (req, res) => {
     res.json(found);
 });
 
+// app.patch("/books/:id", (req, res) => {
+
+//     const { id } = req.params;
+
+//     const found = books.find(
+//         x => x.id === id
+//     );
+
+//     if (!found) {
+//         return res.status(404).send({
+//             Message: "Book not found"
+//         });
+//     }
+
+//     const updatedBook = {
+//         ...found,
+//         ...req.body
+//     };
+
+//     res.json(updatedBook);
+// });
 app.delete("/books/:id", (req, res) => {
     const index = books.findIndex(b => b.id === req.params.id);
     if (index === -1) {
