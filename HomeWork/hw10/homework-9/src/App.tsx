@@ -9,34 +9,33 @@ function App() {
   return (
     <div>
 
-      <nav className="flex gap-4 p-4 bg-gray-200">
+      <nav className="flex gap-4 p-4 bg-blue-200">
 
-        <Link to="/">
+        <Link to="/" className="border-2 rounded-3xl p-2">
           Home
         </Link>
 
-        <Link to="/add">
+        <Link to="/add" className="border-2 rounded-3xl p-2 bg-red-400">
           Add Book
         </Link>
 
       </nav>
 
+      <h1 className="text-blue-500 text-4xl">Library App</h1>
+
       <Routes>
 
         <Route
           path="/"
-          element={<GetBooks />}
-        />
+          element={<GetBooks />} />
 
         <Route
           path="/add"
-          element={<AddBook />}
-        />
+          element={<AddBook />} />
 
         <Route
           path="/books/:id"
-          element={<BookDetail />}
-        />
+          element={<BookDetail />} />
 
       </Routes>
 

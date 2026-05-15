@@ -33,12 +33,12 @@ export default function BookDetail() {
     }
     return (
 
-        <div>
-            <h2>{book.title}</h2>
+        <div className="border-2 w-80">
+            <h2>Title: {book.title}</h2>
             <p>Author: {book.author}</p>
             <p>Year: {book.year} </p>
-            <img src={book.imageUrl} />
-            <button onClick={() => navigate(-1)}> Back </button>
+            <img className="w-60" src={book.imageUrl} />
+            <button className="border-2 rounded bg-blue-400 mt-4 ml-2" onClick={() => navigate(-1)}> Back </button>
 
         </div>
 

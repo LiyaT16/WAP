@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { IBook } from "./IBook";
+import { Link } from "react-router-dom";
 
 export default function GetBooks() {
     const [books, setBooks] = useState<IBook[]>([]);
@@ -26,16 +27,18 @@ export default function GetBooks() {
         }
     };
     return (
-        <div>
-            <h2>Book List</h2>
+        <div className="bg-green-200 m-2 border-2 rounded">
+            <h2 className="font-bold text-2xl text-center mb-4">Book List</h2>
 
-            <div>
+            <div className="grid grid-cols-3 gap-4 m-2">
                 {books.map(book => (
-                    <div>
-                        <h3>{book.title}</h3>
-                        <h3>{book.author}</h3>
-                        <img src={book.imageUrl} />
-                    </div>
+                    <Link key={book.id} to={`/books/${book.id}`}>
+                        <div className="border-2 rounded p-2">
+                            <h3>{book.title}</h3>
+                            <h3>{book.author}</h3>
+                            {book.imageUrl && (<img src={book.imageUrl} width="200" />)}
+                        </div>
+                    </Link>
 
                 ))}
             </div>

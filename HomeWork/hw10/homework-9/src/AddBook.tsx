@@ -7,7 +7,7 @@ function AddBook() {
     const [book, setBook] = useState<IBook>({
         title: "",
         author: "",
-        year: 0,
+        year: "" as any,
         imageUrl: ""
     } as IBook);
 
@@ -31,32 +31,39 @@ function AddBook() {
         }
     };
     const onChangeHandler = (e: any) => {
-        setBook({ ...book, [e.target.name]: e.target.value });
+        setBook({ ...book, [e.target.name]: e.target.name === "year" ? Number(e.target.value) : e.target.value });
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input placeholder="Title"
-                value={book.title}
-                onChange={onChangeHandler}
-                name="title" />
+        <div className="bg-amber-200 w-80 flex flex-cols border-2 rounded justify-center items-center">
+            <form onSubmit={handleSubmit} className="m-2 space-y-2">
+                <input className="border-2 w-full"
+                    placeholder="Title"
+                    value={book.title}
+                    onChange={onChangeHandler}
+                    name="title" />
 
-            <input placeholder="Author"
-                value={book.author}
-                onChange={onChangeHandler}
-                name="author" />
+                <input className="border-2 w-full"
+                    placeholder="Author"
+                    value={book.author}
+                    onChange={onChangeHandler}
+                    name="author" />
 
-            <input placeholder="Year"
-                value={book.year}
-                onChange={onChangeHandler}
-                name="year" />
-            <input placeholder="Image Url"
-                value={book.imageUrl}
-                onChange={onChangeHandler}
-                name="imageUrl" />
+                <input className="border-2 w-full"
+                    type="number"
+                    placeholder="Year"
+                    value={book.year}
+                    onChange={onChangeHandler}
+                    name="year" />
+                <input className="border-2 w-full"
+                    placeholder="Image Url"
+                    value={book.imageUrl}
+                    onChange={onChangeHandler}
+                    name="imageUrl" /> <br></br>
 
-            <button type="submit"> Add Book</button>
-        </form>
+                <button className="m-2 p-2 bg-green-400 border-2" type="submit"> Add Book</button>
+            </form>
+        </div>
     );
 }
 export default AddBook;
