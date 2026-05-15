@@ -33,23 +33,35 @@ app.get("/books/:id", (req, res) => {
 });
 
 app.post("/books", (req, res) => {
-    const { id, title, author, year, imageUrl } = req.body;
+
+    const { title, author, year, imageUrl } = req.body;
+
     if (!title) {
         return res.status(400).json({
             Message: "Title is required"
         });
     }
+
     if (!author) {
         return res.status(400).json({
             Message: "Author is required"
         });
     }
-    if (typeof year !== "number") {
+
+    if (isNaN(Number(year))) {
         return res.status(400).json({
             Message: "Year must be a number"
         });
     }
-    const newBook = req.body;
+
+    const newBook = {
+        id: Date.now().toString(),
+        title,
+        author,
+        year: Number(year),
+        imageUrl
+    };
+
     books.push(newBook);
     res.status(201).json(newBook);
 });
